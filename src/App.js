@@ -16,18 +16,16 @@ import AppContext from './AppContext'
 function App() {
 	const [count, setCount ] = useState(0)
 	const [ loading, setLoading] = useState( true );
-	const [selectedItems, setSelectedItems] = useState([]);
 
 	useEffect( () => {
 		const saved = localStorage.getItem( 'selectedItems');
 		if ( ! saved ) {
 			localStorage.setItem('selectedItems', JSON.stringify([]) );
 		} else {
-			setSelectedItems( JSON.parse(saved) );
 			setCount(JSON.parse(saved).length);
 		}
 		setLoading(false);
-	},[ count,selectedItems]);
+	},[ count ]);
 
 
 	if ( loading ) {
