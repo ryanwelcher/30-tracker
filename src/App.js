@@ -6,14 +6,18 @@ import {
 } from "react-router-dom";
 
 import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 import './App.css';
 import Home from './Home'
 import CategoryList from './CategoryList';
 import AppContext from './AppContext'
+
 function App() {
-	const [count, setCount ] = useState(0)
+	const [count, setCount ] = useState(0);
 
 	useEffect( () => {
 		const saved = localStorage.getItem( 'selectedItems');
@@ -24,13 +28,17 @@ function App() {
 		}
 	},[ count ]);
 
-
 	return (
 		<AppContext.Provider value={{count}}>
 			<Router>
 				<Box className="App">
-					<AppBar position="sticky" className="App-header">
-						Count {count}/30
+					<AppBar position="sticky">
+						<Toolbar className="App-header">
+							<Typography variant="h5">
+								Count {count}/30
+							</Typography>
+							<Button onClick={() => localStorage.clear()}>Reset</Button>
+						</Toolbar>
 					</AppBar>
 					<Switch>
 						<Route exact path="/">
