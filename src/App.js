@@ -27,7 +27,7 @@ function App() {
 			setCount(JSON.parse(saved).length);
 		}
 		setLoading(false);
-	},[ count]);
+	},[ count,selectedItems]);
 
 
 	if ( loading ) {
