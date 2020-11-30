@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+} from "react-router-dom";
 
+import AppBar from '@material-ui/core/AppBar';
+import Box from '@material-ui/core/Box'
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import './App.css';
+import Home from './Home'
+import CategoryList from './CategoryList';
+import AppContext from './AppContext'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [count, setCount ] = useState(0)
+	const [ loading, setLoading] = useState( true );
+	const [selectedItems, setSelectedItems] = useState([]);
+
+	useEffect( () => {
+		const saved = localStorage.getItem( 'selectedItems');
+		if ( ! saved ) {
+			localStorage.setItem('selectedItems', JSON.stringify([]) );
+		} else {
+			setSelectedItems( JSON.parse(saved) );
+			setCount(JSON.parse(saved).length);
+		}
+		setLoading(false);
+	},[ count]);
+
+
+	if ( loading ) {
+		return (
+			<CircularProgress className="loader"/>
+		);
+	}
+
+	
+
+	
+	return (
+		<AppContext.Provider value={{count}}>
+			<Router>
+				<Box className="App">
+					<AppBar position="sticky" className="App-header">
+						Count {count}/30
+					</AppBar>
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route path="/category/:name">
+							<CategoryList set={setCount}/>
+						</Route>
+					</Switch>
+				</Box>
+			</Router>
+		</AppContext.Provider>
+	);
 }
 
 export default App;
