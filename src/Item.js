@@ -8,14 +8,16 @@ import AppContext from './AppContext';
 
 function Item( { name, set } ) {
 	const [ selected, setSelected ] = useState( false );
-
+	const { count } = useContext( AppContext )
 
 	useEffect( () => {
 		const existingItems = JSON.parse( localStorage.getItem( 'selectedItems' ) ) || [];
 		if ( existingItems.includes(name) ) {
-			setSelected( true);
+			setSelected( true );
+		} else {
+			setSelected( false );
 		}
-	},[name]);
+	},[name, count]);
 
 
 	const setItemsInLocalStorage = () => {
@@ -30,7 +32,7 @@ function Item( { name, set } ) {
 		}
 		
 	};
-	const { count } = useContext( AppContext )
+
 	return(
 	
 		<ListItem divider>
