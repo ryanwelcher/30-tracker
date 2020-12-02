@@ -9,8 +9,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
 
 import './App.css';
+import avatar from './avatar.png';
 import Home from './Home'
 import CategoryList from './CategoryList';
 import AppContext from './AppContext'
@@ -32,6 +34,7 @@ function App() {
 				<Box className="App">
 					<AppBar position="sticky">
 						<Toolbar className="App-header">
+						<Avatar alt="William" src={avatar} />
 							<Typography variant="h5">
 								Count {count}/30
 							</Typography>
