@@ -46,6 +46,7 @@ function Item( { name, set } ) {
 			button
 			disableRipple
 			disableTouchRipple
+			selected={selected}
 			onClick={handleClick}
 		>
         	<ListItemText id="switch-list-label-wifi" primary={name} />
