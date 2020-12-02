@@ -4,7 +4,6 @@ import {
 	Switch,
 	Route,
 } from "react-router-dom";
-import { useHistory } from 'react-router'    
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box'
@@ -18,7 +17,6 @@ import AppContext from './AppContext'
 
 function App() {
 	const [count, setCount ] = useState(0);
-	const history = useHistory();
 	useEffect( () => {
 		const saved = localStorage.getItem( 'selectedItems');
 		if ( ! saved ) {
