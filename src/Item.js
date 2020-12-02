@@ -33,18 +33,26 @@ function Item( { name, set } ) {
 		
 	};
 
+	const handleClick = () => {
+		set( selected === true ? count - 1 : count +1  );
+		setItemsInLocalStorage();
+		setSelected( ! selected )
+	}
+
 	return(
 	
-		<ListItem divider>
+		<ListItem
+			divider
+			button
+			disableRipple
+			disableTouchRipple
+			onClick={handleClick}
+		>
         	<ListItemText id="switch-list-label-wifi" primary={name} />
 			<ListItemSecondaryAction>
 				<Switch
 					edge="end"
-					onChange={() => {
-						set( selected === true ? count - 1 : count +1  );
-						setItemsInLocalStorage();
-						setSelected( ! selected )
-					}}
+					onChange={handleClick}
 					checked={selected}
 					inputProps={{ 'aria-labelledby': 'switch-list-label-wifi' }}
 				/>
