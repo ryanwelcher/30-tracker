@@ -12,10 +12,11 @@ import { itemlist } from './items';
 
 const ListHeader =({name}) => (
 	<ListSubheader>
-		<Breadcrumbs>
+		<Breadcrumbs separator="<-" className="nav">
 			<Link component={RouterLink} to="/">List</Link>
 			<Link component={RouterLink} to={`/category/${name}`}>{name}</Link>
 		</Breadcrumbs>
+		<hr/>
 	</ListSubheader>
 )
 
