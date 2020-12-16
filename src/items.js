@@ -30,7 +30,8 @@ export const itemlist = {
 		'Cauliflower',
 		'Lentils',
 		'Zucchini',
-		'Coconut'
+		'Coconut',
+		'Peppers'
 	],
 	'Seeds & Nuts': [
 		'Hemp',
@@ -44,7 +45,8 @@ export const itemlist = {
 		'Quinoa',
 		'Oats',
 		'Cashews',
-		'Hazelnuts'
+		'Hazelnuts',
+		'Buckwheat'
 	],
 	'Other': [
 		'Other 1',
