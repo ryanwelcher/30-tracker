@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
+import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 
 import './App.css';
 import avatar from './avatar.png';
@@ -38,10 +39,17 @@ function App() {
 							<Typography variant="h5">
 								Count {count}/30
 							</Typography>
-							<Button onClick={() => {
-								localStorage.clear();
-								setCount(0);
-							}}>Reset</Button>
+							<Button
+								variant="contained"
+								color="secondary"
+								onClick={() => {
+									localStorage.clear();
+									setCount(0);
+								}}
+								endIcon={<RotateLeftIcon/>}
+							>
+								Reset
+							</Button>
 						</Toolbar>
 					</AppBar>
 					<Switch>
