@@ -15,7 +15,8 @@ export const itemlist = {
 		'Pineapple',
 		'Peach',
 		'Tangerine',
-		'Lime'
+		'Lime',
+		'Coconut'
 	],
 	'Vegetables': [
 		'Peas',
@@ -31,7 +32,10 @@ export const itemlist = {
 		'Lentils',
 		'Zucchini',
 		'Coconut',
-		'Peppers'
+		'Peppers',
+		'Acorn Squash',
+		'Asparagus',
+		'Broccoli'
 	],
 	'Seeds & Nuts': [
 		'Hemp',
@@ -46,7 +50,8 @@ export const itemlist = {
 		'Oats',
 		'Cashews',
 		'Hazelnuts',
-		'Buckwheat'
+		'Buckwheat',
+		'Nutritional Yeast'
 	],
 	'Other': [
 		'Other 1',
